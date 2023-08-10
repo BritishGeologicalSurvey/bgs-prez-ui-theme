@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+:root {
+  --blue: hsl(197, 100%, 13%);
+  --white: #ffffff;
+  --black: #000000;
+  --lt-gray: #f6f6f5;
+  --dk-gray: #333333;
+  --highlight: #66828c;
+  --test: #ffeecc;
+  --ochre: hsl(43, 27%, 56%);
+  --lt-ochre: #cec4a9;
+}
