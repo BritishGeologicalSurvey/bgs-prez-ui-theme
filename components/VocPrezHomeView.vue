@@ -27,7 +27,7 @@ const links = [
             which itself is an opinionated profile of the SKOS (Simple Knowledge Organisation System) data model.
         </p>
 		<h2>Download BGS data to incorporate into your own systems</h2>
-        <p><a href="https://github.com/BritishGeologicalSurvey/vocabularies/archive/main.zip" title="Download all BGS data in one file">Download all BGS data in one zip file</a>
+        <p><a href="https://github.com/BritishGeologicalSurvey/vocabularies/archive/main.zip" title="Download all BGS data in one file">Download all BGS data in one zip file</a></p>
 		<p>
         All our Linked Data is <a href="https://github.com/BritishGeologicalSurvey/vocabularies/tree/main/vocabularies">published on Github as N-Triples</a> to load into your graph store and use in your applications.
 	    Triples are grouped by concept into ".nt" files.
