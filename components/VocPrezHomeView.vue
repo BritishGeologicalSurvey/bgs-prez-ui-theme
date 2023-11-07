@@ -19,19 +19,18 @@ const links = [
 <template>
     <FlavourHome flavour="VocPrez" :links="links">
         <p>
-            The vocabularies are provided as a read-only web delivery system, providing a standardised set of profiles 
+            The BGS vocabularies are provided as a read-only web delivery system, providing a standardised set of profiles 
             in both human and machine-readable views. See the available profiles <RouterLink to="/v/profiles">here</RouterLink>.
         </p>
         <p>
             More specifically, the vocabularies defined in this system conform to the VocPub profile,
             which itself is an opinionated profile of the SKOS (Simple Knowledge Organisation System) data model.
         </p>
-		<h2>Download BGS data to incorporate into your own systems</h2>
-        <p><a href="https://github.com/BritishGeologicalSurvey/vocabularies/archive/main.zip" title="Download all BGS data in one file">Download all BGS data in one zip file</a></p>
+		<h2>Incorporate BGS data into your own systems</h2>
+        <p><a href="https://github.com/BritishGeologicalSurvey/vocabularies/archive/main.zip" title="Download all BGS linked data in one file">Download all BGS linked data in one zip file</a></p>
 		<p>
-        All our Linked Data is <a href="https://github.com/BritishGeologicalSurvey/vocabularies/tree/main/vocabularies">published on Github as N-Triples</a> to load into your graph store and use in your applications.
-	    Triples are grouped by concept into ".nt" files.
-        BGS Linked Data is available free of charge for commercial, research and public use under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence</a>.
+        All our Linked Data is <a href="https://github.com/BritishGeologicalSurvey/vocabularies/tree/main/vocabularies">published on Github as N-Triples</a> to load into your graph store and use in your applications. Alternatively we provide API access via <a href="/sparql">SPARQL</a> or <a href="/docs">OpenAPI</a>.</p>
+	    <p>Triples are grouped by concept into ".nt" files. BGS Linked Data is available free of charge for commercial, research and public use under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence</a>.
 		<br>
 		<br>
 		Please <a href="http://www.bgs.ac.uk/about/copyright/acknowledgements_published.html" target="_blank">acknowledge the material</a>.<br>
