@@ -26,7 +26,9 @@ RUN mv /app/src/App.vue /app/src/PrezApp.vue
 COPY components/App.vue /app/src/App.vue
 
 # Add custom VocPrez page.
-# COPY VocPrezHomeView.vue /app/src/views/vocprez/VocPrezHomeView.vue
+COPY components/VocPrezHomeView.vue /app/src/views/vocprez/VocPrezHomeView.vue
+COPY components/HomeView.vue /app/src/views/HomeView.vue
+COPY components/AboutView.vue /app/src/views/AboutView.vue
 
 RUN rm .env
 
