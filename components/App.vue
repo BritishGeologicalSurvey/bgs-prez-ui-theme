@@ -9,7 +9,7 @@ const globalCss = import.meta.env.BASE_URL + "globals.css";
 
   <div class="prez-app">
     <header>
-      <img src="https://data.bgs.ac.uk/img/BGS-Logo-Rev-RGB.svg" />
+      <img src="/theme/BGS-Logo-Rev-RGB.svg" />
       <h1>BGS Linked Open Data</h1>
       <h2></h2>
     </header>
@@ -85,7 +85,7 @@ const globalCss = import.meta.env.BASE_URL + "globals.css";
         >
           <img
             align="absmiddle"
-            src="https://data.bgs.ac.uk/img/UKRI_NER_Council-Logo_Horiz-RGB_W_.png"
+            src="/theme/UKRI_NER_Council-Logo_Horiz-RGB_W_.png"
             title="The BGS is a research centre of the Natural Environment Research Council"
             alt="NERC UKRI Logo"
           />
