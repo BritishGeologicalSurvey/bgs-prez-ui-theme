@@ -33,8 +33,8 @@ COPY components/AboutView.vue /app/src/views/AboutView.vue
 # Add Logos
 COPY components/favicon.ico /app/public/favicon.ico
 COPY components/favicon.ico /app/public/theme/favicon.ico
-COPY components/BGS-Logo-Rev-RGB.svg /app/src/assets/images/BGS-Logo-Rev-RGB.svg
-COPY components/UKRI_NER_Council-Logo_Horiz-RGB_W_.png /app/src/assets/images/UKRI_NER_Council-Logo_Horiz-RGB_W_.png
+COPY components/BGS-Logo-Rev-RGB.svg /app/public/theme/BGS-Logo-Rev-RGB.svg
+COPY components/UKRI_NER_Council-Logo_Horiz-RGB_W_.png /app/public/theme/UKRI_NER_Council-Logo_Horiz-RGB_W_.png
 
 RUN rm .env
 
