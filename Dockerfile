@@ -23,18 +23,12 @@ RUN sed -i 's+<footer id="footer"></footer>+<div id="footer"></div>+g' /app/inde
 
 # Add custom header and footer.
 RUN mv /app/src/App.vue /app/src/PrezApp.vue
-COPY components/App.vue /app/src/App.vue
+COPY custom-vues/App.vue /app/src/App.vue
 
 # Add custom VocPrez page.
-COPY components/VocPrezHomeView.vue /app/src/views/vocprez/VocPrezHomeView.vue
-COPY components/HomeView.vue /app/src/views/HomeView.vue
-COPY components/AboutView.vue /app/src/views/AboutView.vue
-
-# Add Logos
-COPY components/favicon.ico /app/public/favicon.ico
-COPY components/favicon.ico /app/public/theme/favicon.ico
-COPY components/BGS-Logo-Rev-RGB.svg /app/public/theme/BGS-Logo-Rev-RGB.svg
-COPY components/UKRI_NER_Council-Logo_Horiz-RGB_W_.png /app/public/theme/UKRI_NER_Council-Logo_Horiz-RGB_W_.png
+COPY custom-vues/views/VocPrezHomeView.vue /app/src/views/vocprez/VocPrezHomeView.vue
+COPY custom-vues/views/AboutView.vue /app/src/views/vocprez/AboutView.vue
+COPY custom-vues/views/HomeView.vue /app/src/views/vocprez/HomeView.vue
 
 RUN rm .env
 
