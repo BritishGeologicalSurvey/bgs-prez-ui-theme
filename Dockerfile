@@ -15,8 +15,6 @@ ENV PREZ_UI_HOME=${PREZ_UI_HOME}
 ARG PREZ_UI_VERSION
 ENV PREZ_UI_VERSION=${PREZ_UI_VERSION}
 
-COPY PREZ_UI_GIT_TAG /tmp/PREZ_UI_GIT_TAG
-
 RUN wget -O prez-ui.zip https://github.com/RDFLib/prez/archive/refs/tags/v${PREZ_UI_VERSION}.zip \
     && unzip prez-ui.zip
 
