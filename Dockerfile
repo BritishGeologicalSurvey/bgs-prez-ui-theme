@@ -23,8 +23,8 @@ WORKDIR ${PREZ_UI_HOME}
 COPY public/ ${PREZ_UI_HOME}/public
 
 # Strip out Prez UI header and footer placeholders.
-RUN sed -i 's+<header id="header"></header>+<div id="header"></div>+g' ${PREZ_UI_HOME}/index.html
-RUN sed -i 's+<footer id="footer"></footer>+<div id="footer"></div>+g' ${PREZ_UI_HOME}/index.html
+#RUN sed -i 's+<header id="header"></header>+<div id="header"></div>+g' ${PREZ_UI_HOME}/index.html
+#RUN sed -i 's+<footer id="footer"></footer>+<div id="footer"></div>+g' ${PREZ_UI_HOME}/index.html
 
 # # Add custom header and footer.
 RUN mv ${PREZ_UI_HOME}/src/App.vue ${PREZ_UI_HOME}/src/PrezApp.vue
