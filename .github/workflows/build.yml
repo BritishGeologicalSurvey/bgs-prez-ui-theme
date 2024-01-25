@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 env:
-  IMAGE_NAME: ghcr.io/kurrawong/bgs-prez-ui
+  IMAGE_NAME: ghcr.io/britishgeologicalsurvey/bgs-prez-ui
 
 jobs:
   build:

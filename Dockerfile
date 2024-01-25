@@ -30,6 +30,11 @@ RUN sed -i 's+<footer id="footer"></footer>+<div id="footer"></div>+g' ${PREZ_UI
 RUN mv ${PREZ_UI_HOME}/src/App.vue ${PREZ_UI_HOME}/src/PrezApp.vue
 COPY components/App.vue ${PREZ_UI_HOME}/src/App.vue
 
+# Add custom VocPrez page.
+COPY custom-vues/views/VocPrezHomeView.vue ${PREZ_UI_HOME}/src/views/vocprez/VocPrezHomeView.vue
+COPY custom-vues/views/AboutView.vue ${PREZ_UI_HOME}/src/views/vocprez/AboutView.vue
+COPY custom-vues/views/HomeView.vue ${PREZ_UI_HOME}/src/views/vocprez/HomeView.vue
+
 RUN rm .env
 
 RUN npm ci && npm run build
