@@ -1,4 +1,5 @@
 ARG PREZ_UI_HOME=/prez-ui
+ARG PREZ_UI_VERSION=3.8.4
 
 FROM docker.io/node:18-alpine3.16 AS builder
 
@@ -11,11 +12,12 @@ WORKDIR /
 
 ARG PREZ_UI_HOME
 ENV PREZ_UI_HOME=${PREZ_UI_HOME}
+ARG PREZ_UI_VERSION
+ENV PREZ_UI_VERSION=${PREZ_UI_VERSION}
 
 COPY PREZ_UI_GIT_TAG /tmp/PREZ_UI_GIT_TAG
 
-RUN export PREZ_UI_VERSION=$(cat /tmp/PREZ_UI_GIT_TAG) \
-    && wget -O prez-ui.zip https://github.com/RDFLib/prez-ui/releases/download/v${PREZ_UI_VERSION}/prez-ui-${PREZ_UI_VERSION}.zip \
+RUN wget -O prez-ui.zip https://github.com/RDFLib/prez/archive/refs/tags/v${PREZ_UI_VERSION}.zip \
     && unzip prez-ui.zip
 
 WORKDIR ${PREZ_UI_HOME}
