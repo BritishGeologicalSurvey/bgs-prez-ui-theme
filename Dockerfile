@@ -32,8 +32,8 @@ COPY custom-vues/App.vue ${PREZ_UI_HOME}/src/App.vue
 
 # Add custom VocPrez page.
 COPY custom-vues/views/VocPrezHomeView.vue ${PREZ_UI_HOME}/src/views/vocprez/VocPrezHomeView.vue
-COPY custom-vues/views/AboutView.vue ${PREZ_UI_HOME}/src/views/vocprez/AboutView.vue
-COPY custom-vues/views/HomeView.vue ${PREZ_UI_HOME}/src/views/vocprez/HomeView.vue
+COPY custom-vues/views/AboutView.vue ${PREZ_UI_HOME}/src/views/AboutView.vue
+COPY custom-vues/views/HomeView.vue ${PREZ_UI_HOME}/src/views/HomeView.vue
 
 RUN rm .env
 
