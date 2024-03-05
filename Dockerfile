@@ -1,5 +1,5 @@
 ARG PREZ_UI_HOME=/prez-ui
-ARG PREZ_UI_VERSION=3.8.0
+ARG PREZ_UI_VERSION=3.8.2
 
 FROM docker.io/node:18-alpine3.16 AS builder
 
