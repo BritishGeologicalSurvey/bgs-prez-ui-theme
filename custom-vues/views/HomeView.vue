@@ -33,11 +33,11 @@ onMounted(() => {
             <h3>Spatial Data Catalog</h3>
             <p>Spatial data catalog of GeoSPARQL spatial features with an API conforming to the OGC API specification. Uses DCAT for catalog metadata.</p>
         </RouterLink>
-        <RouterLink v-if="enabledPrezs.includes('VocPrez')" class="prez-card" to="/v/vocab/rf:Lexicon">
+        <RouterLink v-if="enabledPrezs.includes('VocPrez')" class="prez-card" to="/v/vocab/lxcn:NamedRockUnit">
             <h3>BGS Lexicon</h3>
             <p>The BGS Lexicon of Named Rock Units provides our definitions of the lithostratigraphic, lithodemic and lithomorphogenetic geological units of the UK and its continental shelf.</p>
         </RouterLink>
-        <RouterLink v-if="enabledPrezs.includes('VocPrez')" class="prez-card" to="/v/vocab/rf:RockClass">
+        <RouterLink v-if="enabledPrezs.includes('VocPrez')" class="prez-card" to="/v/vocab/rthmtrlclss:RockClassAll">
             <h3>BGS Rock Classification</h3>
             <p>The BGS Rock Classification Scheme classifies all types of earth material or other substance that may be recorded in a geological log or section</p>
         </RouterLink>
