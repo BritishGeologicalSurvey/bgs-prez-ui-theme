@@ -34,6 +34,7 @@ COPY custom-vues/App.vue ${PREZ_UI_HOME}/src/App.vue
 COPY custom-vues/views/VocPrezHomeView.vue ${PREZ_UI_HOME}/src/views/vocprez/VocPrezHomeView.vue
 COPY custom-vues/views/AboutView.vue ${PREZ_UI_HOME}/src/views/AboutView.vue
 COPY custom-vues/views/HomeView.vue ${PREZ_UI_HOME}/src/views/HomeView.vue
+COPY custom-vues/util/sparqlExamples.ts ${PREZ_UI_HOME}/src/util/sparqlExamples.ts
 
 RUN rm .env
 
