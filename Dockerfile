@@ -38,7 +38,7 @@ COPY custom-vues/util/sparqlExamples.ts ${PREZ_UI_HOME}/src/util/sparqlExamples.
 
 RUN rm .env
 
-RUN npm ci --legacy-peer-deps && npm run build
+RUN npm install --legacy-peer-deps && npm run build
 
 # ---
 FROM docker.io/nginx:1.29.6-alpine
