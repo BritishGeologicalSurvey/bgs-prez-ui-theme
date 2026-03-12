@@ -1,7 +1,7 @@
 ARG PREZ_UI_HOME=/prez-ui
 ARG PREZ_UI_VERSION=3.8.3
 
-FROM docker.io/node:18-alpine3.16 AS builder
+FROM docker.io/node:25.8.1-alpine3.23 AS builder
 
 RUN apk update && \
     apk add \
@@ -41,7 +41,7 @@ RUN rm .env
 RUN npm ci --legacy-peer-deps && npm run build
 
 # ---
-FROM docker.io/nginx:1.23-alpine
+FROM docker.io/nginx:1.29.6-alpine
 
 ARG PREZ_UI_HOME
 ENV PREZ_UI_HOME=${PREZ_UI_HOME}
