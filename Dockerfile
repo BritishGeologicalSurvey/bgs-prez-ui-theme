@@ -1,7 +1,7 @@
 ARG PREZ_UI_HOME=/prez-ui
 ARG PREZ_UI_VERSION=3.8.3
 
-FROM docker.io/node:25.8.1-alpine3.23 AS builder
+FROM docker.io/node:25.9.0-alpine3.23 AS builder
 
 RUN apk update && \
     apk add \
@@ -41,14 +41,23 @@ RUN rm .env
 RUN npm install --legacy-peer-deps && npm run build
 
 # ---
-FROM docker.io/nginx:1.29.6-alpine
+FROM docker.io/nginx:1.29.8-alpine
 
 ARG PREZ_UI_HOME
 ENV PREZ_UI_HOME=${PREZ_UI_HOME}
 
 RUN apk add --no-cache bash
 
-RUN mkdir /app
+# Create a non-root user/group
+RUN addgroup -S appgroup \
+ && adduser  -S appuser -G appgroup
+
+RUN mkdir /app \
+ && chown -R appuser:appgroup /app \
+ && chown -R appuser:appgroup /var/cache/nginx \
+ && chown -R appuser:appgroup /var/run \
+ && chown -R appuser:appgroup /var/log/nginx
+
 
 COPY ./docker_entrypoint.sh ./.env ./
 COPY --from=builder ${PREZ_UI_HOME}/dist /app
@@ -57,5 +66,8 @@ COPY ./nginx.conf /etc/nginx/nginx.conf
 RUN chmod +x /docker_entrypoint.sh
 
 EXPOSE 8000
+
+# run as lower privileged user
+USER appuser
 
 ENTRYPOINT [ "/bin/bash", "./docker_entrypoint.sh" ]
