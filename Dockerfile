@@ -48,7 +48,16 @@ ENV PREZ_UI_HOME=${PREZ_UI_HOME}
 
 RUN apk add --no-cache bash
 
-RUN mkdir /app
+# Create a non-root user/group
+RUN addgroup -S appgroup \
+ && adduser  -S appuser -G appgroup
+
+RUN mkdir /app \
+ && chown -R appuser:appgroup /app \
+ && chown -R appuser:appgroup /var/cache/nginx \
+ && chown -R appuser:appgroup /var/run \
+ && chown -R appuser:appgroup /var/log/nginx
+
 
 COPY ./docker_entrypoint.sh ./.env ./
 COPY --from=builder ${PREZ_UI_HOME}/dist /app
@@ -57,5 +66,8 @@ COPY ./nginx.conf /etc/nginx/nginx.conf
 RUN chmod +x /docker_entrypoint.sh
 
 EXPOSE 8000
+
+# run as lower privileged user
+USER appuser
 
 ENTRYPOINT [ "/bin/bash", "./docker_entrypoint.sh" ]
