@@ -41,7 +41,7 @@ RUN rm .env
 RUN npm install --legacy-peer-deps && npm run build
 
 # ---
-FROM docker.io/nginx:1.29.6-alpine
+FROM docker.io/nginx:1.29.8-alpine
 
 ARG PREZ_UI_HOME
 ENV PREZ_UI_HOME=${PREZ_UI_HOME}
