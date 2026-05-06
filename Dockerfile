@@ -48,9 +48,10 @@ ENV PREZ_UI_HOME=${PREZ_UI_HOME}
 
 RUN apk add --no-cache bash
 
-# Create a non-root user/group
-RUN addgroup -S appgroup \
- && adduser  -S appuser -G appgroup
+# Create a non-root user/group with a pinned UID/GID so consumers
+# can rely on a known value in k8s securityContext.runAsUser.
+RUN addgroup -g 1000 -S appgroup \
+ && adduser  -u 1000 -S appuser -G appgroup
 
 RUN mkdir /app \
  && chown -R appuser:appgroup /app \
@@ -60,7 +61,7 @@ RUN mkdir /app \
 
 
 COPY ./docker_entrypoint.sh ./.env ./
-COPY --from=builder ${PREZ_UI_HOME}/dist /app
+COPY --chown=appuser:appgroup --from=builder ${PREZ_UI_HOME}/dist /app
 COPY ./nginx.conf /etc/nginx/nginx.conf
 
 RUN chmod +x /docker_entrypoint.sh
