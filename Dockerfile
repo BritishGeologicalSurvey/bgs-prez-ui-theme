@@ -69,6 +69,6 @@ RUN chmod +x /docker_entrypoint.sh
 EXPOSE 8000
 
 # run as lower privileged user
-USER appuser
+USER 1000
 
 ENTRYPOINT [ "/bin/bash", "./docker_entrypoint.sh" ]
