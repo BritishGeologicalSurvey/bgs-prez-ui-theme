@@ -18,12 +18,11 @@ onMounted(() => {
 
 <template>
     <h1 class="page-title">Welcome to BGS Linked Open Data</h1>
-    <p>Welcome to the BGS Linked Data Server, (BGS-LDS). The BGS-LDS gives access to standardised and hierarchically-organized vocabularies used by BGS</p>
-	<p>The British Geological Survey is a world-leading geological survey and global geoscience organisation, focused on public-good science for government and research to understand earth and environmental processes.</p>
-    <p>We are the UK’s premier provider of objective and authoritative geoscientific data, information and knowledge to help society to use its natural resources responsibly, manage environmental change and be resilient to environmental hazards.</p>
-    <p>This data is published as part of <a href="http://www.bgs.ac.uk/opengeoscience/home.html">BGS OpenGeoscience</a>. All data is the latest published version. For version history and bulk downloads see our <a href="https://github.com/BritishGeologicalSurvey/vocabularies">GitHub repository</a></p>	
+    <p>This site gives access to standardised and hierarchically-organized vocabularies used by BGS</p>
+	<p>available under the Open Government Licence, subject to the following acknowledgement accompanying the reproduced BGS materials: ‘Contains British Geological Survey materials © UKRI [year]’. Traditional search applications for Lexicon and Rock Classification Scheme are also available, please see the <a href="https://www.bgs.ac.uk/information-hub/dictionaries/vocabularies/">main BGS website vocabularies page</a>, and other environmental vocabularies hosted on the <a href="https://vocab.nerc.ac.uk/" target="_blank"> NERC vocabulary server</a>. 
+	<p>All data is the latest published version. For version history and bulk downloads see our <a href="https://github.com/BritishGeologicalSurvey/vocabularies">GitHub repository</a></p>	
 	<p><a href="/about">Why BGS is publishing linked data and how to use it</a></p>
-    <p>BGS use Prez, a Linked Data API with support for multiple data formats (JSON, CSV, JSON-LD, Turtle, RDF/XML).</p>
+    <p>This site is built using <a href="https://github.com/RDFLib/prez" target="_blank">Prez</a> , a Linked Data API with support for multiple data formats (JSON, CSV, JSON-LD, Turtle, RDF/XML) and both RESTful and SPARQL endpoints. The frontend is provided by a customised version of <a href="https://github.com/RDFLib/prez-ui" target="_blank">Prez-UI</a></p>
     <div class="prez-card-container">
         <RouterLink v-if="enabledPrezs.includes('CatPrez')" class="prez-card" to="/c">
             <h3>Data Catalog</h3>
