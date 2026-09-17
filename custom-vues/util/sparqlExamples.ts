@@ -75,20 +75,42 @@ FILTER (?p IN (skos:notation))
 FILTER regex(ucase(str(?label)), "SAND")
 } ORDER BY (ucase(?label)) OFFSET 0 LIMIT 100`
     },
-    {
-        title: "Geochronology/Division within age range sorted by age",
-        shortTitle: "Geochronology/Division within age range sorted by age",
-        description: "Geochronology/Division within age range sorted by age",
+	{
+        title: "Geochronology Divisions within the ICS defined Quaternary period, using BGS defined alignments",
+        shortTitle: "Geochronology Divisions within the ICS Quaternary (Q), using BGS defined alignments",
+        description: "Geochronology Divisions within the ICS Quaternary (Q), using BGS defined alignments",
         query: `PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-PREFIX gc: <http://data.bgs.ac.uk/ref/Geochronology/>
-SELECT *
+
+SELECT DISTINCT ?division ?narrower ?label ?notation
 WHERE {
-?s ?p ?o; skos:prefLabel ?label; skos:notation ?code; gc:minAgeValue ?minAge; gc:maxAgeValue ?maxAge.
-FILTER regex(str(?s), "Geochronology/Division")
-FILTER (?p IN (skos:notation))
-FILTER (?minAge >= 433.4)
-FILTER (?maxAge <= 443.8)
-} ORDER BY ?minAge`
+
+    VALUES ?ics {
+        <http://resource.geosciml.org/classifier/ics/ischart/Quaternary>
+    }
+
+    {
+        ?division skos:exactMatch ?ics .
+    }
+    UNION
+    {
+        ?ics skos:exactMatch ?division .
+    }
+    UNION
+    {
+        ?ics skos:narrowMatch ?division .
+    }
+
+    FILTER STRSTARTS(
+        STR(?division),
+        "http://data.bgs.ac.uk/id/Geochronology/Division"
+    )
+
+    ?division skos:narrower* ?narrower .
+
+    OPTIONAL { ?narrower skos:prefLabel ?label }
+    OPTIONAL { ?narrower skos:notation ?notation }
+}
+ORDER BY ?label`
     },
     {
         title: "Geoscience Thesaurus concepts matching SAND",
@@ -104,18 +126,5 @@ FILTER regex(str(?s), "GeoscienceThesaurus/Concept")
 FILTER (?p IN (skos:prefLabel))
 FILTER regex(ucase(str(?label)), "SAND")
 } ORDER BY (ucase(?label)) OFFSET 0 LIMIT 100`
-    },
-	{
-        title: "Geochronology Divisions within the Quaternary (Q)",
-        shortTitle: "Geochronology Divisions within the Quaternary (Q)",
-        description: "Geochronology Divisions within the Quaternary (Q)",
-        query: `PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-
-    SELECT DISTINCT ?narrower ?label ?notation
-    WHERE {{
-        <http://data.bgs.ac.uk/id/Geochronology/Division/Q> skos:narrower+ ?narrower .
-        OPTIONAL {{ ?narrower skos:prefLabel ?label }}
-        OPTIONAL {{ ?narrower skos:notation ?notation }}
-		}}`
     }
 ];
