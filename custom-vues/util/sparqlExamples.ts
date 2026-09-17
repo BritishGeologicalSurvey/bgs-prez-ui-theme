@@ -93,7 +93,11 @@ WHERE {
     }
     UNION
     {
-        ?division skos:narrowMatch ?ics .
+        ?ics skos:exactMatch ?division .
+    }
+    UNION
+    {
+        ?ics skos:narrowMatch ?division .
     }
 
     FILTER STRSTARTS(
@@ -107,7 +111,7 @@ WHERE {
     OPTIONAL { ?narrower skos:notation ?notation }
 }
 ORDER BY ?label`
-    }
+    },
     {
         title: "Geoscience Thesaurus concepts matching SAND",
         shortTitle: "Geoscience Thesaurus concepts matching SAND",
