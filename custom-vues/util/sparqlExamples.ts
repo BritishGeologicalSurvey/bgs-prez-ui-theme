@@ -115,6 +115,7 @@ FILTER regex(ucase(str(?label)), "SAND")
     WHERE {{
         <http://data.bgs.ac.uk/id/Geochronology/Division/Q> skos:narrower+ ?narrower .
         OPTIONAL {{ ?narrower skos:prefLabel ?label }}
-        OPTIONAL {{ ?narrower skos:notation ?notation }}`
+        OPTIONAL {{ ?narrower skos:notation ?notation }}
+		}}`
     }
 ];
